@@ -21,7 +21,7 @@ The script works in the following way:
 
 # Usage
 
-python wordpress_seo_spam_remover.py -d mysql_database_name -u mysql_username -p mysql_password -o mysql_hostname
+    python wordpress_seo_spam_remover.py -d mysql_database_name -u mysql_username -p mysql_password -o mysql_hostname
 
 # Disclaimer
 

@@ -19,9 +19,15 @@ The script works in the following way:
 - Install mysql-connector-python (http://stackoverflow.com/questions/34489271/i-cannot-install-mysql-connector-python-using-pip)
 - Install meld
 
+# Usage
+
+python wordpress_seo_spam_remover.py -d mysql_database_name -u mysql_username -p mysql_password -o mysql_hostname
+
 # Disclaimer
 
 I have personally used this script and it has worked perfectly; I am releasing it to the open source community because it may be of help to somebody else, but if it breaks anything or does anything that you didn't expect, I take absolutely no responsibility! Before using it, make sure you read and fully understand what it will do, and of course, as always, make full backups of your website so you can restore it to it's previous state in case anything goes wrong.
+
+This script comes with no warranty and I accept no responsibility for it's use.
 
 # Support
 

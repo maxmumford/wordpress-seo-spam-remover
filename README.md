@@ -7,7 +7,7 @@ A tool to remove SEO spam from your wordpress website. This malware will appear 
 The script works in the following way:
 
 - connects to your wordpress mysql database
-- finds all posts containing the string "_all_wplink_"
+- finds all posts containing the string "\_all\_wplink\_"
 - uses a simple regex to identify and remove the div from the post html
 - presents you with a diff of all the changes it will make to the database
 - asks you to confirm you are happy with the diff

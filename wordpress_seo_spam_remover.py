@@ -12,6 +12,7 @@ parser.add_option("-d", "--database", dest="database", help="Database name")
 parser.add_option("-u", "--username", dest="username", help="MySQL user name")
 parser.add_option("-p", "--password", dest="password", help="MySQL password", default='')
 parser.add_option("-o", "--hostname", dest="hostname", help="Hostname", default='localhost')
+parser.add_option("-x", "--wordpress-prefix", dest="wp_prefix", help="Wordpress table prefix", default="wp_")
 options, args = parser.parse_args()
 
 # required options
@@ -32,7 +33,7 @@ mysql_cursor = mysql_connection.cursor()
 
 # find posts with spam
 print("Finding posts that contain seo spam")
-query = "SELECT `ID`, `post_content` FROM `wp_posts` WHERE `post_content` like '%_all_wplink_%'"
+query = "SELECT `ID`, `post_content` FROM `%sposts` WHERE `post_content` like '%_all_wplink_%'" % options.wp_prefix
 mysql_cursor.execute(query)
 posts = mysql_cursor.fetchall()
 posts = [list(post) for post in posts]
@@ -98,7 +99,7 @@ if confirmed:
         original_content = post[1]
         modified_content = post[2]
 
-        query = 'UPDATE `wp_posts` SET `post_content` = %s WHERE `ID` = %s'
+        query = 'UPDATE `%sposts` SET `post_content` = %s WHERE `ID` = %s' % options.wp_prefix
         mysql_cursor.execute(query, (modified_content, post_id))
 else:
     print("No changes have been made to your database")
